@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>BrightWeb Studio — Websites + Marketing That Grow</title>
+  <meta name="description" content="We build high-converting websites and run practical marketing that brings customers. Strategy, design, development, SEO, and ads."/>
+  <style>
+    :root{
+      --bg:#0b0f19;
+      --card:#11172a;
+      --muted:#98a2b3;
+      --text:#e6e8ee;
+      --brand:#7c3aed;
+      --brand2:#22c55e;
+      --line:rgba(255,255,255,.08);
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --radius:18px;
+      --max:1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 700px at 15% 0%, rgba(124,58,237,.35), transparent 50%),
+                  radial-gradient(900px 600px at 85% 5%, rgba(34,197,94,.18), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:24px}
+    header{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: rgba(11,15,25,.55);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between; gap:16px;
+      max-width:var(--max); margin:0 auto; padding:14px 24px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; font-weight:700;
+      letter-spacing:.2px;
+    }
+    .logo{
+      width:34px;height:34px;border-radius:10px;
+      background: linear-gradient(135deg, var(--brand), #60a5fa);
+      box-shadow: 0 10px 30px rgba(124,58,237,.35);
+    }
+    .navlinks{display:flex; align-items:center; gap:18px; color:var(--muted); font-size:14px}
+    .navlinks a:hover{color:var(--text)}
+    .cta{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 14px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(124,58,237,.95), rgba(34,197,94,.75));
+      color:white; font-weight:700; font-size:14px;
+      box-shadow: 0 18px 55px rgba(124,58,237,.25);
+      border:1px solid rgba(255,255,255,.10);
+      cursor:pointer;
+    }
+    .cta:hover{transform: translateY(-1px)}
+    .ghost{
+      background:transparent; border:1px solid var(--line); color:var(--text);
+      box-shadow:none;
+    }
+
+    /* Hero */
+    .hero{padding:64px 0 28px}
+    .heroGrid{
+      display:grid; grid-template-columns: 1.25fr .75fr; gap:28px; align-items:center;
+    }
+    .kicker{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:7px 10px; border-radius:999px;
+      border:1px solid var(--line);
+      color:var(--muted); font-size:13px;
+      background: rgba(255,255,255,.03);
+      margin-bottom:16px;
+    }
+    .dot{width:8px;height:8px;border-radius:50%; background: var(--brand2); box-shadow:0 0 0 6px rgba(34,197,94,.12)}
+    h1{font-size:48px; line-height:1.06; margin:0 0 14px; letter-spacing:-.8px}
+    .sub{color:var(--muted); font-size:17px; max-width:58ch; margin:0 0 22px}
+    .heroBtns{display:flex; gap:12px; flex-wrap:wrap}
+    .metrics{
+      display:grid; grid-template-columns:repeat(3, 1fr);
+      gap:12px; margin-top:26px;
+    }
+    .metric{
+      padding:14px 14px; border-radius:var(--radius);
+      background: rgba(255,255,255,.03);
+      border:1px solid var(--line);
+    }
+    .metric b{display:block; font-size:18px}
+    .metric span{color:var(--muted); font-size:13px}
+    .card{
+      border-radius:var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .sideCard{
+      padding:18px;
+    }
+    .sideTitle{font-weight:800; margin:0 0 6px}
+    .sideDesc{color:var(--muted); margin:0 0 14px; font-size:14px}
+    .pill{
+      display:flex; gap:10px; align-items:flex-start;
+      padding:12px; border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(17,23,42,.65);
+      margin-bottom:10px;
+    }
+    .icon{
+      width:34px;height:34px;border-radius:12px;
+      background: rgba(124,58,237,.20);
+      border:1px solid rgba(124,58,237,.25);
+      display:grid; place-items:center;
+      font-weight:800;
+    }
+    .pill p{margin:0;color:var(--muted); font-size:13px}
+    .pill strong{display:block; color:var(--text); font-size:14px; margin-bottom:2px}
+
+    /* Sections */
+    section{padding:52px 0}
+    .sectionTitle{
+      font-size:28px; margin:0 0 10px; letter-spacing:-.4px
+    }
+    .sectionSub{color:var(--muted); margin:0 0 18px; max-width:70ch}
+    .grid3{display:grid; grid-template-columns:repeat(3, 1fr); gap:14px}
+    .grid2{display:grid; grid-template-columns:repeat(2, 1fr); gap:14px}
+    .service{
+      padding:18px;
+    }
+    .service h3{margin:0 0 6px}
+    .service p{margin:0 0 10px; color:var(--muted); font-size:14px}
+    .list{margin:0; padding-left:16px; color:var(--muted); font-size:14px}
+    .list li{margin:6px 0}
+    .tagRow{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+    .tag{
+      font-size:12px; color:var(--muted);
+      border:1px solid var(--line);
+      padding:6px 10px; border-radius:999px;
+      background: rgba(255,255,255,.03);
+    }
+
+    /* Process */
+    .step{
+      padding:18px;
+      display:flex; gap:14px;
+    }
+    .num{
+      width:38px;height:38px;border-radius:14px;
+      background: rgba(34,197,94,.14);
+      border:1px solid rgba(34,197,94,.25);
+      display:grid; place-items:center;
+      font-weight:900;
+      flex:0 0 auto;
+    }
+    .step h4{margin:0 0 6px}
+    .step p{margin:0; color:var(--muted); font-size:14px}
+
+    /* Pricing */
+    .price{
+      padding:18px;
+    }
+    .price h3{margin:0 0 6px}
+    .money{font-size:34px; font-weight:900; margin:8px 0}
+    .price small{color:var(--muted)}
+    .highlight{
+      border:1px solid rgba(124,58,237,.35);
+      background: linear-gradient(180deg, rgba(124,58,237,.15), rgba(255,255,255,.02));
+    }
+    .line{height:1px;background:var(--line); margin:14px 0}
+    .check{
+      display:flex; gap:10px; align-items:flex-start; color:var(--muted); font-size:14px; margin:10px 0;
+    }
+    .check:before{
+      content:"✓";
+      color:var(--brand2);
+      font-weight:900;
+      margin-top:1px;
+    }
+
+    /* FAQ */
+    details{
+      border:1px solid var(--line);
+      border-radius:16px;
+      background: rgba(255,255,255,.03);
+      padding:14px 14px;
+    }
+    summary{cursor:pointer; font-weight:700}
+    details p{color:var(--muted); margin:10px 0 0; font-size:14px}
+
+    /* Contact */
+    form{display:grid; gap:10px}
+    input, textarea, select{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(17,23,42,.7);
+      color:var(--text);
+      outline:none;
+    }
+    textarea{min-height:110px; resize:vertical}
+    .formRow{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+
+    footer{
+      padding:26px 0 40px; color:var(--muted); font-size:13px;
+      border-top:1px solid var(--line);
+      margin-top:20px;
+    }
+
+    /* Responsive */
+    @media (max-width: 920px){
+      .heroGrid{grid-template-columns:1fr; }
+      h1{font-size:40px}
+      .grid3{grid-template-columns:1fr}
+      .grid2{grid-template-columns:1fr}
+      .metrics{grid-template-columns:1fr}
+      .navlinks{display:none}
+      .formRow{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <a class="brand" href="#top">
+        <div class="logo" aria-hidden="true"></div>
+        <div>BrightWeb Studio</div>
+      </a>
+      <nav class="navlinks" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#work">Proof</a>
+        <a href="#process">Process</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="cta" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
+        Get a Free Growth Plan →
+      </button>
+    </div>
+  </header>
+
+  <main id="top" class="wrap">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="heroGrid">
+        <div>
+          <div class="kicker"><span class="dot"></span> Websites + marketing built to convert, not just look good</div>
+          <h1>Turn clicks into customers with a site that sells.</h1>
+          <p class="sub">
+            We design and build fast, modern websites and pair them with practical marketing (SEO, ads, email, analytics)
+            so you can get more leads, more calls, and more sales.
+          </p>
+          <div class="heroBtns">
+            <button class="cta" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Start a Project</button>
+            <a class="cta ghost" href="#services">See Services</a>
+          </div>
+
+          <div class="metrics">
+            <div class="metric">
+              <b>Conversion-first</b>
+              <span>Messaging, layout, and offers designed to win leads.</span>
+            </div>
+            <div class="metric">
+              <b>Speed + SEO</b>
+              <span>Core Web Vitals focus for rankings and user trust.</span>
+            </div>
+            <div class="metric">
+              <b>Measurable ROI</b>
+              <span>Analytics + tracking so you know what works.</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="card sideCard">
+          <h3 class="sideTitle">What you get</h3>
+          <p class="sideDesc">A simple, proven funnel: clear offer → trust → proof → easy contact.</p>
+
+          <div class="pill">
+            <div class="icon">⚡</div>
+            <div>
+              <strong>Launch-ready website</strong>
+              <p>Mobile-first, fast, secure, and easy to update.</p>
+            </div>
+          </div>
+
+          <div class="pill">
+            <div class="icon">📈</div>
+            <div>
+              <strong>Marketing foundation</strong>
+              <p>SEO basics, tracking, and a plan to get leads.</p>
+            </div>
+          </div>
+
+          <div class="pill" style="margin-bottom:0">
+            <div class="icon">🧠</div>
+            <div>
+              <strong>Strategy that fits your business</strong>
+              <p>We position you clearly so customers choose you.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <h2 class="sectionTitle">Services designed around business principles</h2>
+      <p class="sectionSub">
+        Everything we do supports growth: clarity, credibility, conversion, and consistent follow-up.
+      </p>
+
+      <div class="grid3">
+        <div class="card service">
+          <h3>Web Design + Development</h3>
+          <p>Fast, modern sites that build trust and drive action.</p>
+          <ul class="list">
+            <li>Custom landing pages & multi-page sites</li>
+            <li>Mobile-first, accessible layout</li>
+            <li>Performance + security basics</li>
+          </ul>
+          <div class="tagRow">
+            <span class="tag">Speed</span><span class="tag">UX</span><span class="tag">Copy</span>
+          </div>
+        </div>
+
+        <div class="card service">
+          <h3>SEO + Local Presence</h3>
+          <p>Be found when customers search for what you do.</p>
+          <ul class="list">
+            <li>On-page SEO + technical cleanup</li>
+            <li>Google Business Profile support</li>
+            <li>Content plan for search demand</li>
+          </ul>
+          <div class="tagRow">
+            <span class="tag">Rankings</span><span class="tag">Local</span><span class="tag">Content</span>
+          </div>
+        </div>
+
+        <div class="card service">
+          <h3>Lead Gen + Ads</h3>
+          <p>Simple campaigns that send qualified leads.</p>
+          <ul class="list">
+            <li>Google Ads / Meta Ads setup</li>
+            <li>Landing pages + tracking</li>
+            <li>Weekly optimization cadence</li>
+          </ul>
+          <div class="tagRow">
+            <span class="tag">PPC</span><span class="tag">Tracking</span><span class="tag">ROI</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROOF / WORK -->
+    <section id="work">
+      <h2 class="sectionTitle">Proof beats promises</h2>
+      <p class="sectionSub">Replace these with your real results once you have them. This structure is what matters.</p>
+
+      <div class="grid3">
+        <div class="card service">
+          <h3>Case Study: Local Service</h3>
+          <p><b>Goal:</b> more calls from Google</p>
+          <div class="line"></div>
+          <div class="check">Rebuilt homepage messaging + offer</div>
+          <div class="check">Improved speed + mobile layout</div>
+          <div class="check">Added booking + tracking</div>
+          <p style="color:var(--muted); margin-top:10px; font-size:14px;">
+            <b>Outcome:</b> +35% lead conversion in 30 days (example).
+          </p>
+        </div>
+
+        <div class="card service">
+          <h3>Case Study: E-Commerce</h3>
+          <p><b>Goal:</b> increase checkout rate</p>
+          <div class="line"></div>
+          <div class="check">Simplified navigation + product pages</div>
+          <div class="check">Added reviews + trust signals</div>
+          <div class="check">Email capture + follow-up</div>
+          <p style="color:var(--muted); margin-top:10px; font-size:14px;">
+            <b>Outcome:</b> +18% revenue lift (example).
+          </p>
+        </div>
+
+        <div class="card service">
+          <h3>Case Study: B2B</h3>
+          <p><b>Goal:</b> better qualified leads</p>
+          <div class="line"></div>
+          <div class="check">Clear positioning + niche messaging</div>
+          <div class="check">Lead magnet + email automation</div>
+          <div class="check">Ad landing pages + analytics</div>
+          <p style="color:var(--muted); margin-top:10px; font-size:14px;">
+            <b>Outcome:</b> +2x demo requests (example).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process">
+      <h2 class="sectionTitle">A process built for results</h2>
+      <p class="sectionSub">This reduces risk and keeps projects on schedule: strategy → build → launch → improve.</p>
+
+      <div class="grid2">
+        <div class="card step">
+          <div class="num">1</div>
+          <div>
+            <h4>Strategy + Offer</h4>
+            <p>We clarify who you serve, the problem you solve, and the exact action you want visitors to take.</p>
+          </div>
+        </div>
+
+        <div class="card step">
+          <div class="num">2</div>
+          <div>
+            <h4>Copy + Design</h4>
+            <p>We write and design for clarity: benefits, proof, and an easy path to conversion.</p>
+          </div>
+        </div>
+
+        <div class="card step">
+          <div class="num">3</div>
+          <div>
+            <h4>Build + Performance</h4>
+            <p>We build fast pages, SEO-ready structure, and tracking so you can measure what matters.</p>
+          </div>
+        </div>
+
+        <div class="card step">
+          <div class="num">4</div>
+          <div>
+            <h4>Launch + Growth</h4>
+            <p>We iterate using data: improve conversions, expand SEO, and scale ads when it makes sense.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing">
+      <h2 class="sectionTitle">Simple pricing</h2>
+      <p class="sectionSub">Use these as placeholders. You can adjust once you decide your packages.</p>
+
+      <div class="grid3">
+        <div class="card price">
+          <h3>Starter</h3>
+          <small>For new businesses</small>
+          <div class="money">$1,200</div>
+          <div class="check">1-page conversion site</div>
+          <div class="check">Basic SEO setup</div>
+          <div class="check">Contact form + tracking</div>
+          <div class="line"></div>
+          <button class="cta ghost" style="width:100%" onclick="fillPlan('Starter')">Choose Starter</button>
+        </div>
+
+        <div class="card price highlight">
+          <h3>Growth</h3>
+          <small>Best for consistent lead flow</small>
+          <div class="money">$2,500</div>
+          <div class="check">Up to 5 pages</div>
+          <div class="check">SEO + local optimization</div>
+          <div class="check">Lead magnet + email capture</div>
+          <div class="line"></div>
+          <button class="cta" style="width:100%" onclick="fillPlan('Growth')">Choose Growth</button>
+        </div>
+
+        <div class="card price">
+          <h3>Scale</h3>
+          <small>For aggressive marketing</small>
+          <div class="money">$4,500+</div>
+          <div class="check">Custom pages + landing pages</div>
+          <div class="check">Ads setup + conversion tracking</div>
+          <div class="check">Monthly optimization</div>
+          <div class="line"></div>
+          <button class="cta ghost" style="width:100%" onclick="fillPlan('Scale')">Choose Scale</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <h2 class="sectionTitle">FAQ</h2>
+      <p class="sectionSub">Answer objections clearly. This builds trust and increases conversions.</p>
+
+      <div class="grid2">
+        <details>
+          <summary>How long does a website take?</summary>
+          <p>Most projects take 1–3 weeks depending on pages, content, and feedback speed.</p>
+        </details>
+        <details>
+          <summary>Do you handle hosting and domains?</summary>
+          <p>Yes. We can recommend options, set it up, and ensure it’s secure and fast.</p>
+        </details>
+        <details>
+          <summary>Can you help with SEO and ads after launch?</summary>
+          <p>Yes — we offer ongoing SEO and ad management so results improve over time.</p>
+        </details>
+        <details>
+          <summary>What do you need from me?</summary>
+          <p>Your goals, examples of websites you like, and any brand assets (logo/colors). We can help write copy if needed.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2 class="sectionTitle">Get a free growth plan</h2>
+      <p class="sectionSub">
+        Tell us what you do and what you want. We’ll reply with a simple plan: what to build, what to fix, and what to market.
+      </p>
+
+      <div class="grid2">
+        <div class="card service">
+          <h3>Contact</h3>
+          <p>Replace these with your real details:</p>
+          <div class="line"></div>
+          <p style="margin:0; color:var(--muted)">
+            <b>Email:</b> hello@yourstudio.com<br/>
+            <b>Phone:</b> (555) 123-4567<br/>
+            <b>Location:</b> Your City, USA
+          </p>
+          <div class="line"></div>
+          <p style="margin:0; color:var(--muted); font-size:14px">
+            Prefer a quick call? Mention your best time and we’ll schedule it.
+          </p>
+        </div>
+
+        <div class="card service">
+          <h3>Project Request</h3>
+          <form onsubmit="handleSubmit(event)">
+            <div class="formRow">
+              <input required name="name" placeholder="Your name" />
+              <input required type="email" name="email" placeholder="Email address" />
+            </div>
+            <div class="formRow">
+              <select name="plan" id="plan">
+                <option value="">Select a package (optional)</option>
+                <option>Starter</option>
+                <option>Growth</option>
+                <option>Scale</option>
+              </select>
+              <input name="website" placeholder="Your website (optional)" />
+            </div>
+            <textarea required name="message" placeholder="What do you sell and what result do you want (leads, calls, sales)?"></textarea>
+            <button class="cta" type="submit">Send Request →</button>
+            <p id="formNote" style="margin:8px 0 0; color:var(--muted); font-size:13px"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="wrap">
+      <div style="display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap;">
+        <div>© <span id="year"></span> BrightWeb Studio. All rights reserved.</div>
+        <div style="display:flex; gap:14px;">
+          <a href="#services">Services</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // small UX helpers (no backend needed)
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function fillPlan(planName){
+      const sel = document.getElementById("plan");
+      sel.value = planName;
+      document.querySelector('#contact').scrollIntoView({behavior:'smooth'});
+    }
+
+    function handleSubmit(e){
+      e.preventDefault();
+      const form = e.target;
+      const data = Object.fromEntries(new FormData(form).entries());
+
+      // This is a demo: it doesn't send anywhere unless you connect a backend.
+      // For quick deployment, wire this to Formspree, Netlify Forms, or a simple server endpoint.
+      const note = document.getElementById("formNote");
+      note.textContent = "Thanks! Your request is ready. (Demo mode: connect this form to an email service to receive messages.)";
+
+      // Optional: open user's email client with prefilled message
+      const subject = encodeURIComponent("Website + Marketing Project Request");
+      const body = encodeURIComponent(
+        `Name: ${data.name}\nEmail: ${data.email}\nPackage: ${data.plan || "N/A"}\nWebsite: ${data.website || "N/A"}\n\nMessage:\n${data.message}`
+      );
+      window.location.href = `mailto:hello@yourstudio.com?subject=${subject}&body=${body}`;
+      form.reset();
+    }
+  </script>
+</body>
+</html>
